@@ -24,7 +24,7 @@ Python Exe 打包
 - ✅ 阶段 2：基础打包（控制台程序 + rich 第三方库）
 - ✅ 阶段 3：处理隐式依赖（ModuleNotFoundError → collect_all 解决）
 - ✅ 阶段 4：进阶打包（FastAPI + Uvicorn Web 服务）
-- ✅ 阶段 5：原理深入（spec 文件结构、指令集、工具对比）
+- ✅ 阶段 5：原理深入（spec 文件结构、指令集、工具对比） 
 
 ## 关键决策记录
 

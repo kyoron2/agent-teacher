@@ -33,11 +33,19 @@ LLM 应用开发（通过 "Personal Knowledge Copilot" 项目驱动学习）
 - [x] Document Loader 与 Text Splitter (PDF 处理)
 - [x] Chainlit 集成：文件上传与动态 RAG
 
-### Stage 3: Agent 与 Tool Calling (当前阶段)
-- [ ] Tool Calling 核心原理
-- [ ] 自定义 Tool (Python 函数)
-- [ ] ReAct 模式 (Reasoning + Acting)
-- [ ] Agent 实战：联网搜索助手
+### Stage 3: Agent 与 Tool Calling (已完成)
+- [x] Tool Calling 核心原理（OpenAI Function Calling 底层机制）
+- [x] 自定义 Tool（`@tool` 装饰器、docstring 的重要性）
+- [x] LangChain 1.x 新 API（`create_agent`、消息格式变化）
+- [x] 消息对象系统（HumanMessage, AIMessage, ToolMessage, SystemMessage）
+- [x] Agent 自动化（多步推理、自动循环）
+- [x] 第三方工具集成（Tavily 搜索 API）
+- [x] Chainlit Web UI（事件驱动、异步编程、消息更新）
+
+**关键文件**：
+- `stage3_agent_tool/tool_basic_demo.py` - 手动工具调用演示
+- `stage3_agent_tool/agent_demo.py` - Agent 自动化（命令行版本）
+- `stage3_agent_tool/app_agent.py` - Chainlit Web UI 版本
 
 ## 关键决策记录
 - 2026-02-15: 学习路径选择 → 混合路径（每 Stage 先学概念再动手）

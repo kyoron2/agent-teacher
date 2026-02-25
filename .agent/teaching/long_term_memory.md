@@ -23,9 +23,9 @@ LLM 应用开发（通过 "Personal Knowledge Copilot" 项目驱动学习）
 |---|---|---|---|
 | Stage 1 | Token、Prompt Template、LLM API、流式输出 | 基础聊天机器人 + Web UI | ✅ 已完成 |
 | Stage 2 | Embedding、向量数据库、RAG、文本分割 | 文档问答功能 | ✅ 已完成 |
-| Stage 3 | Memory、Tool/Function Calling、Agent | 记忆 + 工具 | ⬜ 准备开始 |
-| Stage 4 | 图论、状态管理、Human-in-the-loop | LangGraph 重构 | ⬜ |
-| Stage 5 | API 服务化、链路追踪、评估 | 部署 + 监控 + 测试 | ⬜ |
+| Stage 3 | Memory、Tool/Function Calling、Agent | 记忆 + 工具 | ✅ 已完成 |
+| Stage 4 | 图论、状态管理、Human-in-the-loop | LangGraph 重构 | ✅ 已完成 |
+| 实战项目 | 综合运用知识点设计系统架构 | 个人知识库助手 | ⏳ 进行中 |
 
 ### Stage 2: RAG 与 向量数据库 (已完成)
 - [x] Embedding 概念与实战
@@ -42,10 +42,32 @@ LLM 应用开发（通过 "Personal Knowledge Copilot" 项目驱动学习）
 - [x] 第三方工具集成（Tavily 搜索 API）
 - [x] Chainlit Web UI（事件驱动、异步编程、消息更新）
 
+### Stage 4: LangGraph - 复杂 Agent 工作流 (已完成)
+- [x] LangGraph 背景和核心原理
+- [x] StateGraph 基础（State、Node、Edge）
+- [x] 条件分支（`add_conditional_edges`）
+- [x] 循环流程（条件边指向自己）
+- [x] 集成 LangChain Agent（Agent 作为节点）
+- [x] Human-in-the-loop（MemorySaver、interrupt、thread_id）
+- [x] 实战案例（研究助手：搜索+评估+循环+报告+审查）
+
 **关键文件**：
-- `stage3_agent_tool/tool_basic_demo.py` - 手动工具调用演示
-- `stage3_agent_tool/agent_demo.py` - Agent 自动化（命令行版本）
-- `stage3_agent_tool/app_agent.py` - Chainlit Web UI 版本
+- `stage4_langgraph/graph_basic.py` - StateGraph 基础示例
+- `stage4_langgraph/graph_conditional.py` - 条件分支示例
+- `stage4_langgraph/graph_loop.py` - 循环流程示例
+- `stage4_langgraph/graph_agent.py` - Agent 集成示例
+- `stage4_langgraph/graph_hitl.py` - Human-in-the-loop 示例
+- `stage4_langgraph/graph_research.py` - 研究助手（综合实战）
+
+### 实战项目: 个人知识库助手 (进行中)
+- [x] Step 1：项目搭建与基础单节点图 (`copilot/`)
+- [x] Step 2：知识库模块（PDF 上传 + RAG）
+- [x] Step 3：LangGraph 路由（意图分类：knowledge/chat）
+- [ ] Step 4：搜索模块（Tavily 网络搜索集成）
+- [ ] Step 5：边界体验优化（中间状态、来源回溯）
+
+## 重要讨论
+- 2026-02-21: 讨论了意图分类的局限性（AI 无法单靠问题判断该用搜索还是 RAG）
 
 ## 关键决策记录
 - 2026-02-15: 学习路径选择 → 混合路径（每 Stage 先学概念再动手）

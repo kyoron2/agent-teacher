@@ -3,42 +3,24 @@
 ## 当前阶段
 Stage 1：基础对话机器人（已完成）
 Stage 2：RAG 与向量数据库（已完成）
-Stage 3：Agent 与 Tool Calling（准备开始）
+Stage 3：Agent 与 Tool Calling（已完成）
+Stage 4：LangGraph（已完成）
+实战项目：个人知识库助手（进行中）
 
 ## 当前步骤
-**Stage 3: Agent 与 Tool Calling** - ✅ 已完成
+**实战项目：个人知识库助手（Knowledge Copilot）** - 进行中
 
-已完成：
-- ✅ Step 0：全局概览（背景、ReAct 模式、LangChain 1.x 变化）
-- ✅ Step 1：工具定义和手动调用（`tool_basic_demo.py`）
-  - 学习 `@tool` 装饰器
-  - 学习 `bind_tools()` 手动模式
-  - 创建 `get_current_time` 和 `calculate` 工具
-- ✅ Step 2：Agent 自动化（`agent_demo.py`）
-  - 理解 LangChain 1.x 新 API（`create_agent`）
-  - 掌握消息格式（`{"messages": [...]}`）
-  - 实现多步推理（Agent 自动循环调用工具）
-  - 理解消息对象（HumanMessage, AIMessage, ToolMessage, SystemMessage）
-- ✅ Step 3：集成联网搜索工具（`agent_demo.py` + Tavily）
-  - 注册 Tavily API，获取 API Key
-  - 使用 `TavilySearchResults` 预制工具
-  - 理解工具的即插即用设计
-  - Agent 自动判断何时需要搜索
-- ✅ Step 4：Chainlit Web UI 集成（`app_agent.py`）
-  - 理解 Chainlit 事件驱动模型（`@cl.on_chat_start`, `@cl.on_message`）
-  - 掌握异步编程（`async/await`）
-  - 实现消息更新机制（先显示"思考中"，再更新为答案）
-  - 完成从命令行到 Web 应用的升级
+功能：上传 PDF 建立知识库，提问时自动路由（RAG/直接回答）
 
-Stage 3 核心成果：
-- 创建了 3 个可用的工具（时间、计算、搜索）
-- 实现了能自主决策的 Agent
-- 完成了 Web UI 应用（浏览器中对话）
+步骤：
+- ✅ Step 1：项目搭建 + 基础对话
+- ✅ Step 2：知识库模块（PDF 上传 + RAG）
+- ✅ Step 3：LangGraph 路由（意图分类）
+- ✅ Step 4：搜索模块（采用 3 分类方案：知识库/搜索/闲聊）
+- ⏳ 中间步骤：整理当前进度并提交 Git
+- ⏳ Step 5：增加多轮对话记忆（History Memory）
 
-下一步选择：
-- Stage 4：LangGraph（复杂 Agent 工作流）
-- 或：增强当前应用（添加更多工具、显示中间步骤）
-- 或：实战项目（结合 RAG + Agent）
+下一步：先整理当前文件，更新 `.gitignore`，并引导学生提交代码到 Git 仓库。完成之后，再继续学习如何使用 LangGraph 的 MemorySaver。
 
 ## 已完成概念
 - ✅ Token 与上下文窗口
@@ -60,7 +42,13 @@ Stage 3 核心成果：
 - ✅ Agent 多步推理与自动循环
 - ✅ 第三方 API 集成（Tavily 搜索）
 - ✅ Chainlit 异步编程（`async/await`、消息更新）
- 
+- ✅ StateGraph 基础（State、Node、Edge）
+- ✅ 条件边（`add_conditional_edges`）
+- ✅ 循环流程（条件边指向自己）
+- ✅ Agent 作为 LangGraph 节点
+- ✅ 人工介入（MemorySaver、interrupt、thread_id）
+- ✅ `Annotated[str, operator.add]` 累积 State
+- ✅ 控制反转 (IoC) 与声明式编程（Chainlit 和 LangGraph 的底层运行逻辑）
 
 ## 学生疑惑/偏好
 - 学生不熟悉任何 LLM 相关库，完全从零开始
@@ -78,4 +66,6 @@ Stage 3 核心成果：
 - 工具的 description 非常重要，决定 Agent 何时使用该工具
 - `tool_call_id` 用于关联工具调用请求和响应，支持并发调用多个工具
 - Chainlit 的消息更新机制提升用户体验（先显示"思考中"，再更新为答案）
-
+- LangGraph 中断恢复需要 MemorySaver + thread_id，普通 invoke 会重新从头执行
+- `Annotated` 的 `__metadata__` 属性让框架能读取附加信息并当作函数调用
+- 使用框架（Chainlit/LangGraph）是声明式编程，编写组件并由框架自身的内部循环/服务器在收到事件时调用（控制反转）
